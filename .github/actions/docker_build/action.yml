@@ -12,12 +12,12 @@ inputs:
   tag_name:
     description: "Tag "
     required: false
-    default: "$(date +%s)"
+    default: ""
 runs:
   using: composite
   steps:
     - name: Setting item's properties in GITHUB_ENV
-      run:  | 
+      run: | 
           if [ -z "${{ inputs.tag_name }}" ]; then
             echo "TAG=$(date +%s)" >> $GITHUB_ENV
           else
