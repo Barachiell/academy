@@ -3,10 +3,13 @@ package com.ctw.workstation.rest.teammember.boundary;
 import com.ctw.workstation.entity.DefaultLocation;
 import com.ctw.workstation.rest.config.DatabaseTestResource;
 import com.ctw.workstation.rest.team.entity.TeamDTO;
+import com.ctw.workstation.rest.teammember.control.TeamMemberService;
 import com.ctw.workstation.rest.teammember.entity.TeamMemberDTO;
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.response.Response;
+import jakarta.inject.Inject;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
@@ -27,8 +30,13 @@ class TeamMemberResourceTest {
     private UUID teamMemberId;
     private UUID teamId;
 
+    @Inject
+    TeamMemberService teamMemberService;
+
     @BeforeEach
     void setup(){
+        teamMemberService.clearDatabase();
+
         teamDTO = new TeamDTO(null, "productTest", "test", DefaultLocation.LISBON );
         Response response = given()
                 .contentType("application/json")
@@ -48,6 +56,11 @@ class TeamMemberResourceTest {
                 .statusCode(201)
                 .extract().response();
         teamMemberId = UUID.fromString(response2.jsonPath().getString("id"));
+    }
+
+    @AfterEach
+    void clear(){
+        teamMemberService.clearDatabase();
     }
 
     @Test

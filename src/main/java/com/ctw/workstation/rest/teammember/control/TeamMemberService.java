@@ -58,4 +58,9 @@ public class TeamMemberService {
                 .orElseThrow(()-> new NotFoundException("TeamMember with Id " + id + " not found"));
         teamMemberRepository.delete(teamMember);
     }
+
+    @Transactional
+    public void clearDatabase() {
+        teamMemberRepository.deleteAll();
+    }
 }

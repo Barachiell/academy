@@ -12,6 +12,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import jakarta.inject.Inject;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -71,6 +72,11 @@ class RackResourceTest {
         rackId = UUID.fromString(response2.jsonPath().getString("id"));
         rackDTOBadRequest = new RackDTO(rackId, teamId, null, Rack.Status.AVAILABLE,DefaultLocation.LISBON);
         rackDTONotFound = new RackDTO(null, UUID.randomUUID(), "54321", Rack.Status.AVAILABLE, DefaultLocation.LISBON);
+    }
+
+    @AfterEach
+    void clear(){
+        rackService.clearDatabase();
     }
 
     /*

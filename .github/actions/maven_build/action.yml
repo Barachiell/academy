@@ -4,5 +4,5 @@ description: Build application with Maven
 runs:
   using: composite
   steps:
-    - run: mvn -B package -DskipTests --file pom.xml
+    - run: mvn -B package --file pom.xml
       shell: bash

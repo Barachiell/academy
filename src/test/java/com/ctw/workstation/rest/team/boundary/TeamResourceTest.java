@@ -13,6 +13,8 @@ import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import io.restassured.response.Response;
 import jakarta.transaction.Transactional;
+import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.Matchers.hasSize;
@@ -55,6 +57,11 @@ class TeamResourceTest {
                 .extract().response();
 
         teamId = UUID.fromString(response.jsonPath().getString("id"));
+    }
+
+    @AfterEach
+    void clear(){
+        teamService.clearDatabase();
     }
 
     @Test

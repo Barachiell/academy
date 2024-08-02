@@ -16,16 +16,14 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: 'temurin'
+        distribution: 'corretto'
         cache: maven
     - uses: barachiell/academy/.github/actions/maven_build@main
     - uses: barachiell/academy/.github/actions/docker_build@main
@@ -39,5 +37,6 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - uses: barachiell/academy/.github/actions/push_action@main
+    - name:
 
 
