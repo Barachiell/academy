@@ -28,8 +28,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - uses: barachiell/academy/.github/actions/maven_build@main
-    - name: Create a new Docker Image
-      run: docker build . --file src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
-    - name: List Images
-      run: docker images | grep academy
+    - uses: barachiell/academy/.github/actions/docker_build@main
+
 

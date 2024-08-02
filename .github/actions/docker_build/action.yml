@@ -1,0 +1,16 @@
+name: Docker Image Creation
+description: Create a new Docker image
+inputs:
+  dockerfile_path:
+    description: "Path to the Dockerfile"
+    required: false
+    default: "Dockerfile"
+runs:
+  using: composite
+  steps:
+    - run:  docker build . --file src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
+      shell: bash
+
+    - name: List Images
+      run: docker images | grep academy
+      shell: bash
