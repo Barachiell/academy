@@ -38,6 +38,6 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+    - uses: barachiell/academy/.github/actions/push_action@main
 
 
