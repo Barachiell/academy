@@ -4,13 +4,30 @@ inputs:
   dockerfile_path:
     description: "Path to the Dockerfile"
     required: false
-    default: "Dockerfile"
+    default: "src/main/docker/Dockerfile.jvm"
+  image_name:
+    description: "Image name"
+    required: false
+    default: "academy"
+  tag_name:
+    description: "Tag "
+    required: false
+    default: "$(date +%s)"
 runs:
   using: composite
   steps:
-    - run:  docker build . --file src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
+    - name: Setting item's properties in GITHUB_ENV
+      run:  | 
+          if [ -z "${{ inputs.tag_name }}" ]; then
+            echo "TAG=$(date +%s)" >> $GITHUB_ENV
+          else
+            echo "TAG=${{ inputs.tag_name}} }}" >> $GITHUB_ENV
+          fi
+          echo "DOCKER_IMAGE_NAME=${{inputs.image_name}}" >> $GITHUB_ENV
       shell: bash
-
+    - name: Building Image
+      run: docker build . --file ${{input.dockerfile_path}} --tag $DOCKER_IMAGE_NAME:$TAG
+      shell: bash
     - name: List Images
-      run: docker images | grep academy
+      run: docker images | grep $DOCKER_IMAGE_NAME
       shell: bash

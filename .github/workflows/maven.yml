@@ -29,5 +29,9 @@ jobs:
         cache: maven
     - uses: barachiell/academy/.github/actions/maven_build@main
     - uses: barachiell/academy/.github/actions/docker_build@main
+      with:
+        dockerfile_path: "src/main/docker/Dockerfile.jvm"
+        image_name: "academy"
+        tag_name: "$(date +%s)"
 
 
