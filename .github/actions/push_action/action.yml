@@ -1,0 +1,20 @@
+name: Docker Image Creation
+description: Create a new Docker image
+inputs:
+  docker_username:
+    description: "Docker Username"
+    required: false
+    default: "bernardpineiro855"
+  image_name:
+    description: "Image name"
+    required: false
+    default: $DOCKER_IMAGE_NAME:$TAG
+runs:
+  using: composite
+  steps:
+    - name: tag the image
+      run: docker tag ${{inputs.image_name}} ${{inputs.docker_username}}/workstation:$TAG
+      shell: bash
+    - name: Push image
+      run: docker push ${{inputs.docker_username}}/workstation:$TAG
+      shell: bash
