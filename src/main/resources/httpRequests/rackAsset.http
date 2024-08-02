@@ -1,0 +1,33 @@
+GET http://localhost:8080/rackassets/9e1334a2-26eb-4939-b644-82de9ac24206
+Accept: application/json
+Content-Type: */*
+
+###
+POST http://localhost:8080/rackassets
+Content-Type: application/json
+
+{
+  "rackId": "6dacb264-9ee4-44cb-8030-2689f12bd0e3",
+  "assetTag": "MapStruct"
+}
+
+###
+### GET request to example server
+GET http://localhost:8080/rackassets
+Content-Type: */*
+
+###
+
+PUT http://localhost:8080/rackassets/9e1334a2-26eb-4939-b644-82de9ac24206
+Content-Type: application/json
+
+{
+  "rackId": "0002dbae-eb8f-4504-9c77-3079654d867a",
+  "assetTag": "CHANGEDAgain"
+}
+
+###
+DELETE http://localhost:8080/rackassets/9e1334a2-26eb-4939-b644-82de9ac24206
+Accept: application/json
+Content-Type: */*
+

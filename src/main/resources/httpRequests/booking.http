@@ -1,0 +1,32 @@
+GET http://localhost:8080/bookings/9939f9f9-1f7d-448e-9c3b-fad598c48145
+Accept: application/json
+Content-Type: */*
+
+###
+POST http://localhost:8080/bookings
+Content-Type: application/json
+
+{
+  "bookFrom": "2022-03-10T12:15:50",
+  "bookTo": "2022-03-10T12:15:50",
+  "requesterId": "aaf09a4a-bd5c-4493-9504-27deffa5c432",
+  "rackId": "6dacb264-9ee4-44cb-8030-2689f12bd0e3"
+}
+
+###
+### GET request to example server
+GET http://localhost:8080/bookings
+Content-Type: */*
+
+###
+
+PUT http://localhost:8080/bookings/9939f9f9-1f7d-448e-9c3b-fad598c48145
+Content-Type: application/json
+
+{
+  "bookFrom": "2022-03-10T12:15:50",
+  "bookTo": "2024-03-10T12:15:50",
+  "requesterId": "aaf09a4a-bd5c-4493-9504-27deffa5c432",
+  "rackId": "0002dbae-eb8f-4504-9c77-3079654d867a"
+}
+

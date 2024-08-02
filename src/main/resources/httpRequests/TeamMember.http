@@ -1,0 +1,35 @@
+GET http://localhost:8080/teammembers/fa5d6f1b-c6c0-486a-84be-bf043731722f
+Accept: application/json
+Content-Type: */*
+
+###
+POST http://localhost:8080/teammembers
+Content-Type: application/json
+
+{
+  "teamId": "34e8021b-7876-4c9c-94ba-309cf90af8cf",
+  "name": "Bruno",
+  "ctwId": "CTW-06760"
+}
+
+###
+### GET request to example server
+GET http://localhost:8080/teammembers
+Content-Type: */*
+
+###
+
+PUT http://localhost:8080/teammembers/fa5d6f1b-c6c0-486a-84be-bf043731722f
+Content-Type: application/json
+
+{
+  "teamId": "34e8021b-7876-4c9c-94ba-309cf90af8cf",
+  "name": "Bruno-N",
+  "ctwId": "CTW-03760"
+}
+
+###
+
+DELETE http://localhost:8080/teammembers/fa5d6f1b-c6c0-486a-84be-bf043731722f
+Accept: application/json
+Content-Type: */*

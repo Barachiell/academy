@@ -1,0 +1,32 @@
+GET http://localhost:8080/racks/60b0e032-bf6d-4ef0-986c-ce4708b3ad14
+Accept: application/json
+Content-Type: */*
+
+###
+POST http://localhost:8080/racks
+Content-Type: application/json
+
+{
+  "teamId": "f61c1e80-f26e-421a-9a2b-93ff40574638",
+  "serialNumber": "SecondRack",
+  "status": "AVAILABLE",
+  "defaultLocation": "PORTO"
+}
+
+###
+### GET request to example server
+GET http://localhost:8080/racks
+Content-Type: */*
+
+###
+
+PUT http://localhost:8080/racks/60b0e032-bf6d-4ef0-986c-ce4708b3ad1
+Content-Type: application/json
+
+{
+  "teamId": "f61c1e80-f26e-421a-9a2b-93ff40574638",
+  "serialNumber": "CTW-GME-ON",
+  "status": "AVAILABLE",
+  "defaultLocation": "LISBON"
+}
+

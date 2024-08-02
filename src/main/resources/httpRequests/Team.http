@@ -1,0 +1,33 @@
+GET http://localhost:8080/teams/7c6f6f1a-3d79-4ff9-a2a4-6448eb040d5
+Content-Type: application/json
+
+###
+POST http://localhost:8080/teams
+Content-Type: application/json
+
+{
+  "product": "MAPSTRUCT",
+  "name": "GAME",
+  "defaultLocation": "LISBON"
+}
+
+###
+### GET request to example server
+GET http://localhost:8080/teams
+
+###
+
+PUT http://localhost:8080/teams/1a5060e4-b387-4f3f-9e5f-4cd1af7be692
+Content-Type: application/json
+
+{
+  "product": "MAPSTRUCT",
+  "name": "CHANGED",
+  "defaultLocation": "BRAGA"
+}
+
+###
+
+DELETE http://localhost:8080/teams/6f5f3fc9-89ce-4df8-a0c4-c362caca8af8
+Content-Type: application/json
+
