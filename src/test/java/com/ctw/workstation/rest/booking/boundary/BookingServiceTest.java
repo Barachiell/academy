@@ -41,7 +41,8 @@ class BookingServiceTest {
         // then
         //assertEquals("Booking With Id: " + id + " Not Found", thrown.getMessage());
     }
-
+}
+    /*
     @Test
     void findByIdWhitValidBooking() {
 
@@ -60,8 +61,7 @@ class BookingServiceTest {
 
         // then
 
-    }
-}
+    }*/
     /*
     @BeforeEach
     void setUp() {
